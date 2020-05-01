@@ -15,7 +15,6 @@ class MemoDetailScreen extends React.Component {
 
   UNSAFE_componentWillMount() {
     const { params } = this.props.navigation.state;
-    console.log(params);
     this.setState({ memo: params.memo });
   }
 

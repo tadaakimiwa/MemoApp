@@ -9,7 +9,7 @@ class MemoEditScreen extends React.Component {
     body: '',
     key: '',
   }
-  
+
   UNSAFE_componentWillMount() {
     const { params } = this.props.navigation.state;
     this.setState({
@@ -19,8 +19,8 @@ class MemoEditScreen extends React.Component {
   }
 
   handlePress() {
-    const { currentUser } = firebase.auth()
-    const db = firebase.firestore()
+    const { currentUser } = firebase.auth();
+    const db = firebase.firestore();
     const newDate = firebase.firestore.Timestamp.now();
     db.collection(`users/${currentUser.uid}/memos`).doc(this.state.key)
       .update({
@@ -38,8 +38,7 @@ class MemoEditScreen extends React.Component {
         navigation.goBack();
       })
       .catch(() => {
-        console.log(error);
-      })
+      });
   }
 
   render() {
